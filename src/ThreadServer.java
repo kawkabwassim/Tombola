@@ -18,19 +18,15 @@ public class ThreadServer extends Thread{
 		try {
 			ServerSocket ss = new ServerSocket(9999);
 			while(true){
-				int numeri[] = null;
-				
+				double estrazione;
 				Socket s = ss.accept();
 				PrintWriter out = new PrintWriter(s.getOutputStream(),true);
 				InputStreamReader ISR = new InputStreamReader(s.getInputStream());
 				BufferedReader in = new BufferedReader(ISR);
-			
-				for(int i = 0; i<15; i++){
-					numeri[i] = (int) Math.random() * 90 + 1;
-					out.println(numeri[i]);
-				}
 				
-				
+				estrazione = Math.random() * 90 +1;
+				out.println(String.valueOf(estrazione));
+		
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

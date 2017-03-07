@@ -3,6 +3,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.swt.widgets.TableItem;
 
 public class ServerG {
 
@@ -46,43 +48,48 @@ public class ServerG {
 		shell.setText("Server");
 		
 		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setBounds(22, 10, 454, 219);
+		table.setBounds(10, 10, 491, 221);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
+		int n = 1;
+		for(int i=0;i<10;i++){
+			TableColumn colum = new TableColumn(table, SWT.NULL);
+			colum.setWidth(50);
+			colum.setText(" ");
+			
+		}
 		
-		TableColumn tblclmnNewColumn = new TableColumn(table, SWT.NONE);
-		tblclmnNewColumn.setWidth(45);
-		
-		TableColumn tblclmnNewColumn_1 = new TableColumn(table, SWT.NONE);
-		tblclmnNewColumn_1.setWidth(45);
-		
-		TableColumn tblclmnNewColumn_2 = new TableColumn(table, SWT.NONE);
-		tblclmnNewColumn_2.setWidth(45);
-		
-		TableColumn tblclmnNewColumn_3 = new TableColumn(table, SWT.NONE);
-		tblclmnNewColumn_3.setWidth(45);
-		
-		TableColumn tblclmnNewColumn_4 = new TableColumn(table, SWT.NONE);
-		tblclmnNewColumn_4.setWidth(45);
-		
-		TableColumn tblclmnNewColumn_5 = new TableColumn(table, SWT.NONE);
-		tblclmnNewColumn_5.setWidth(45);
-		
-		TableColumn tblclmnNewColumn_6 = new TableColumn(table, SWT.NONE);
-		tblclmnNewColumn_6.setWidth(45);
-		
-		TableColumn tblclmnNewColumn_7 = new TableColumn(table, SWT.NONE);
-		tblclmnNewColumn_7.setWidth(45);
-		
-		TableColumn tblclmnNewColumn_8 = new TableColumn(table, SWT.NONE);
-		tblclmnNewColumn_8.setWidth(45);
-		
-		TableColumn tblclmnNewColumn_9 = new TableColumn(table, SWT.NONE);
-		tblclmnNewColumn_9.setWidth(45);
-		
+		for (int loopIndex = 0; loopIndex < 9; loopIndex++) {
+			 
+		      TableItem item = new TableItem(table, SWT.NULL);
+		      item.setText(String.valueOf(n));
+		      item.setText(String.valueOf(n));
+		      item.setText(String.valueOf(n));
+		      item.setText(String.valueOf(n));
+		      item.setText(String.valueOf(n));
+		      item.setText(String.valueOf(n));
+		      item.setText(String.valueOf(n));
+		      item.setText(String.valueOf(n));
+		      item.setText(String.valueOf(n));
+		      item.setText(String.valueOf(n));
+		      n = n+10;
+		      
+		    }
+
 		Thread t = new Thread(new ThreadServer(this));
 		t.start();
 
 	}
+	
+	public void AggiornaGraficaS(){
+		Display.getDefault().syncExec(new Runnable(){
 
+			@Override
+			public void run() {
+				
+				
+			}
+			
+		});
+	}
 }

@@ -5,6 +5,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 
 public class ClientG {
 
@@ -44,12 +46,20 @@ public class ClientG {
 	 */
 	protected void createContents() {
 		shell = new Shell();
-		shell.setSize(450, 300);
+		shell.setSize(450, 372);
 		shell.setText("Client");
 		
 		Button btnNewButton = new Button(shell, SWT.NONE);
+		btnNewButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				
+				Thread t = new Thread(new ThreadClient(this));
+				t.start();
+			}
+		});
 		btnNewButton.setBounds(10, 227, 75, 25);
-		btnNewButton.setText("New Button");
+		btnNewButton.setText("Connessione");
 		
 		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
 		table.setBounds(36, 10, 351, 191);
@@ -82,9 +92,19 @@ public class ClientG {
 		
 		TableColumn tblclmnNewColumn_7 = new TableColumn(table, SWT.NONE);
 		tblclmnNewColumn_7.setWidth(41);
-		
-		Thread t = new Thread(new ThreadClient(this));
-		t.start();
 
+	}
+	
+	public void AggoirnaGraficaC(){
+		Display.getDefault().asyncExec(new Runnable(){
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
 	}
 }
