@@ -1,6 +1,11 @@
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.List;
+
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Table;
@@ -12,6 +17,9 @@ public class ClientG {
 
 	protected Shell shell;
 	private Table table;
+	private Socket s;
+	private PrintWriter out;
+	private BufferedReader in;
 
 	/**
 	 * Launch the application.
@@ -54,8 +62,12 @@ public class ClientG {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				
-				Thread t = new Thread(new ThreadClient(this));
-				t.start();
+				s= new Socket("localhost",9999);
+				ClientReceiver cr= new ClientReceiver(s, ClientG.this);
+				
+				out=new PrintWriter(s.getOutputStream(), true);
+				
+				cr.start();
 			}
 		});
 		btnNewButton.setBounds(10, 227, 75, 25);
@@ -95,7 +107,7 @@ public class ClientG {
 
 	}
 	
-	public void AggoirnaGraficaC(){
+	public void addMessage(String message) {
 		Display.getDefault().asyncExec(new Runnable(){
 
 			@Override
@@ -103,8 +115,8 @@ public class ClientG {
 				// TODO Auto-generated method stub
 				
 			}
-			
-		});
+		// TODO Auto-generated method stub
 		
-	}
+	});
+}
 }

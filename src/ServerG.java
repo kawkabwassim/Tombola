@@ -10,6 +10,7 @@ public class ServerG {
 
 	protected Shell shell;
 	private Table table;
+	
 
 	/**
 	 * Launch the application.
@@ -60,6 +61,7 @@ public class ServerG {
 		}
 		
 		for (int loopIndex = 0; loopIndex < 9; loopIndex++) {
+			
 			 
 		      TableItem item = new TableItem(table, SWT.NULL);
 		      item.setText(String.valueOf(n));
@@ -86,6 +88,11 @@ public class ServerG {
 
 			@Override
 			public void run() {
+				
+				for(int i=0;i<15;i++){
+					String message=in.readLine();
+					System.out.println(message);
+				}
 				
 				
 			}
