@@ -1,5 +1,6 @@
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Label;
 
 import java.io.BufferedReader;
@@ -14,7 +15,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
-public class ServerG {
+public class Server {
 		
 	PrintWriter out;
 	private ArrayList<Label>Numeri = new ArrayList<Label>();
@@ -26,7 +27,7 @@ public class ServerG {
 	 */
 	public static void main(String[] args) {
 		try {
-			ServerG window = new ServerG();
+			Server window = new Server();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -122,6 +123,7 @@ public class ServerG {
 				int ncas=((int)(Math.random()*90)+1);
 				for (int i = 0; i < Numeri.size(); i++) {
 					if(Numeri.get(i).getText().equals(ncas+"")){
+						
 						Numeri.get(i).setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
 					}
 				}

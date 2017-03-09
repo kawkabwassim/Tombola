@@ -6,10 +6,10 @@ import java.net.Socket;
 
 public class ClientReceiver extends Thread {
 	private Socket s;
-	private ClientG c;
+	private Client c;
 
 	// deve essere inizializzato con il socket e il riferimento nella grafica
-	public ClientReceiver(Socket s, ClientG c) {
+	public ClientReceiver(Socket s, Client c) {
 		this.s = s;
 		this.c = c;
 	}
