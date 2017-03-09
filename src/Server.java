@@ -49,7 +49,6 @@ public class Server {
 						InputStreamReader isr = new InputStreamReader(s.getInputStream());
 						BufferedReader in = new BufferedReader(isr);
 						out= new PrintWriter(s.getOutputStream(), true);
-						System.out.println("ciao");
 						
 						// Invio i numeri
 						String mandati="";
@@ -91,8 +90,8 @@ public class Server {
 	 */
 	protected void createContents() {
 		shlServer = new Shell();
-		shlServer.setSize(450, 300);
-		shlServer.setText("Server");
+		shlServer.setSize(450, 348);
+		shlServer.setText("TABELLONE");
 		
 		int n =1;
 		for(int i=0; i<9; i++){
@@ -113,25 +112,25 @@ public class Server {
 				inizia();
 			}
 		});
-		btnNewButton.setBounds(10, 214, 75, 25);
+		btnNewButton.setBounds(163, 244, 110, 25);
 		btnNewButton.setText("Inizia");
 		
-		Button btnEstrai = new Button(shlServer, SWT.NONE);
-		btnEstrai.addSelectionListener(new SelectionAdapter() {
+		Button btnNumeri = new Button(shlServer, SWT.NONE);
+		btnNumeri.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				int ncas=((int)(Math.random()*90)+1);
+				int num=((int)(Math.random()*90)+1);
 				for (int i = 0; i < Numeri.size(); i++) {
-					if(Numeri.get(i).getText().equals(ncas+"")){
+					if(Numeri.get(i).getText().equals(num+"")){
 						
-						Numeri.get(i).setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+						Numeri.get(i).setBackground(SWTResourceManager.getColor(SWT.COLOR_YELLOW));
 					}
 				}
-				out.println(ncas+"");
+				out.println(num+"");
 			}
 		});
-		btnEstrai.setBounds(349, 214, 75, 25);
-		btnEstrai.setText("Estrai");
+		btnNumeri.setBounds(163, 275, 110, 25);
+		btnNumeri.setText("Estrazione numero");
 
 	}
 }

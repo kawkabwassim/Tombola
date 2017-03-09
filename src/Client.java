@@ -58,8 +58,8 @@ public class Client {
 	 */
 	protected void createContents() {
 		shlCartella = new Shell();
-		shlCartella.setText("Cartella");
-		shlCartella.setSize(384, 217);
+		shlCartella.setText("CARTELLA");
+		shlCartella.setSize(384, 269);
 
 		Button btnConnessione = new Button(shlCartella, SWT.NONE);
 		btnConnessione.addSelectionListener(new SelectionAdapter() {
@@ -83,7 +83,7 @@ public class Client {
 				}
 			}
 		});
-		btnConnessione.setBounds(284, 127, 75, 25);
+		btnConnessione.setBounds(118, 196, 136, 25);
 		btnConnessione.setText("Connessione");
 
 		Label lblNewLabel_1 = new Label(shlCartella, SWT.NONE);
@@ -154,11 +154,11 @@ public class Client {
 			public void run() {
 				if(message.contains(";")){
 					// recupero numeri
-					String[] numeriStr = message.split(";");
-					int[] numeri = new int[numeriStr.length];
-					for (int i = 0; i < numeriStr.length; i++) {
+					String[] Stringnumeri = message.split(";");
+					int[] numeri = new int[Stringnumeri.length];
+					for (int i = 0; i < Stringnumeri.length; i++) {
 						// converto in interi
-						numeri[i] = Integer.parseInt(numeriStr[i]);
+						numeri[i] = Integer.parseInt(Stringnumeri[i]);
 					}
 					for (int i = 0; i < numeri.length; i++) {
 						Caselle.get(i).setText(numeri[i] + "");
