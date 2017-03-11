@@ -54,7 +54,7 @@ public class Server {
 						String mandati="";
 						for (int i=0; i<15; i++) {
 							//prendo e aggiungo un numero
-							mandati+=((int)(Math.random()*90)+1)+";";
+							mandati+=((int)(Math.random()*90)+1)+"&";
 						}
 						out.println(mandati);
 						
@@ -90,7 +90,7 @@ public class Server {
 	 */
 	protected void createContents() {
 		shlServer = new Shell();
-		shlServer.setSize(450, 348);
+		shlServer.setSize(400, 348);
 		shlServer.setText("TABELLONE");
 		
 		int n =1;
@@ -112,8 +112,8 @@ public class Server {
 				inizia();
 			}
 		});
-		btnNewButton.setBounds(163, 244, 110, 25);
-		btnNewButton.setText("Inizia");
+		btnNewButton.setBounds(129, 237, 110, 25);
+		btnNewButton.setText("Start");
 		
 		Button btnNumeri = new Button(shlServer, SWT.NONE);
 		btnNumeri.addSelectionListener(new SelectionAdapter() {
@@ -129,7 +129,7 @@ public class Server {
 				out.println(num+"");
 			}
 		});
-		btnNumeri.setBounds(163, 275, 110, 25);
+		btnNumeri.setBounds(129, 275, 110, 25);
 		btnNumeri.setText("Estrazione numero");
 
 	}
